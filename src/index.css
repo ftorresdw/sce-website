@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#0b0f1a] text-slate-100 antialiased;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 sm:py-20;
+  }
+
+  .h1 {
+    @apply text-4xl font-semibold tracking-tight sm:text-5xl;
+  }
+
+  .h2 {
+    @apply text-3xl font-semibold tracking-tight sm:text-4xl;
+  }
+
+  .muted {
+    @apply text-slate-300;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition;
+  }
+
+  .btn-primary {
+    @apply btn bg-sce-orange text-white hover:bg-sce-orange-hover;
+  }
+
+  .text-accent {
+    @apply text-sce-orange;
+  }
+
+  .link-accent {
+    @apply font-semibold text-sce-orange underline decoration-2 underline-offset-4 hover:text-sce-orange-hover;
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/15 bg-white/5 text-white hover:bg-white/10;
+  }
+
+  .section-light {
+    @apply bg-white text-slate-900;
+  }
+
+  .muted-light {
+    @apply text-slate-600;
+  }
+
+  .form-label {
+    @apply mb-2 block text-sm font-semibold text-slate-800;
+  }
+
+  .form-input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-sce-orange focus:outline-none focus:ring-2 focus:ring-sce-orange/20;
+  }
+}

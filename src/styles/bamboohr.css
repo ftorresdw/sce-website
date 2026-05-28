@@ -1,0 +1,92 @@
+/* Override BambooHR careers embed to match SCE site styling */
+.bamboohr-embed {
+  --sce-bhr-text: #0f172a;
+  --sce-bhr-muted: #64748b;
+  --sce-bhr-border: #e2e8f0;
+  --sce-bhr-accent: #f15a24;
+  --sce-bhr-bg: #ffffff;
+}
+
+.bamboohr-embed #BambooHR,
+.bamboohr-embed .BambooHR-ATS-board,
+.bamboohr-embed .BambooHR-ATS {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  color: var(--sce-bhr-text) !important;
+  background: var(--sce-bhr-bg) !important;
+}
+
+.bamboohr-embed .BambooHR-ATS-Title,
+.bamboohr-embed h1,
+.bamboohr-embed h2 {
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  color: var(--sce-bhr-text) !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 1rem !important;
+}
+
+.bamboohr-embed .BambooHR-ATS-Department-Header,
+.bamboohr-embed .BambooHR-ATS-Department-Name {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: var(--sce-bhr-muted) !important;
+  padding: 1.25rem 0 0.5rem !important;
+  border-bottom: 1px solid var(--sce-bhr-border) !important;
+  margin-top: 1rem !important;
+}
+
+.bamboohr-embed .BambooHR-ATS-Jobs-Item,
+.bamboohr-embed .BambooHR-ATS-Jobs-Item a,
+.bamboohr-embed li.BambooHR-ATS-Jobs-Item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 1rem 0 !important;
+  border-bottom: 1px solid var(--sce-bhr-border) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease !important;
+}
+
+.bamboohr-embed .BambooHR-ATS-Jobs-Item:hover,
+.bamboohr-embed .BambooHR-ATS-Jobs-Item a:hover {
+  color: var(--sce-bhr-accent) !important;
+}
+
+.bamboohr-embed .BambooHR-ATS-Jobs-Item .BambooHR-ATS-Jobs-Title,
+.bamboohr-embed .BambooHR-ATS-Jobs-Item a {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: var(--sce-bhr-text) !important;
+}
+
+.bamboohr-embed .BambooHR-ATS-Jobs-Item:hover .BambooHR-ATS-Jobs-Title {
+  color: var(--sce-bhr-accent) !important;
+}
+
+.bamboohr-embed .BambooHR-ATS-Location,
+.bamboohr-embed .BambooHR-ATS-Jobs-Location {
+  font-size: 0.875rem !important;
+  color: var(--sce-bhr-muted) !important;
+  font-weight: 500 !important;
+}
+
+.bamboohr-embed .BambooHR-ATS-Jobs-List {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.bamboohr-embed .BambooHR-ATS-PoweredBy,
+.bamboohr-embed [class*='PoweredBy'] {
+  opacity: 0.5 !important;
+  font-size: 0.7rem !important;
+  margin-top: 1.5rem !important;
+}
+
+.bamboohr-embed iframe {
+  width: 100% !important;
+  min-height: 600px !important;
+  border: none !important;
+}
