@@ -45,7 +45,13 @@ export function HomePage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-12">
             <article className="relative overflow-hidden rounded-3xl bg-slate-900 text-white lg:col-span-12">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1582550751520-8b6d3a2d9961?auto=format&fit=crop&w=2400&q=60')] bg-cover bg-center opacity-85" />
+              <div className="absolute inset-0">
+                <img
+                  src={site.portfolio.items[0].image}
+                  alt="Universal Epic Universe aerial concept rendering at night"
+                  className="size-full object-cover object-center opacity-85"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
               <div className="relative p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sce-orange">
@@ -72,7 +78,15 @@ export function HomePage() {
                 key={item.title}
                 className="relative overflow-hidden rounded-3xl bg-slate-900 text-white lg:col-span-4"
               >
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=60')] bg-cover bg-center opacity-75" />
+                {item.image ? (
+                  <div className="absolute inset-0">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="size-full object-cover object-center opacity-75"
+                    />
+                  </div>
+                ) : null}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
                 <div className="relative p-6">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sce-orange">{item.category}</p>

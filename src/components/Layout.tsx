@@ -56,7 +56,10 @@ export function Layout() {
   }
 
   function isLinkActive(href: string) {
-    if (href.startsWith('/')) return location.pathname === href
+    if (href.startsWith('/')) {
+      if (href === '/newsroom') return location.pathname.startsWith('/newsroom')
+      return location.pathname === href
+    }
     return false
   }
 
@@ -204,6 +207,9 @@ export function Layout() {
               <a href="/#portfolio" className="hover:text-white">
                 Portfolio
               </a>
+              <Link to="/newsroom" className="hover:text-white">
+                Newsroom
+              </Link>
               <a href="/#services" className="hover:text-white">
                 Services
               </a>

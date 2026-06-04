@@ -7,6 +7,7 @@ export type PortfolioItem = {
   category: string
   description: string
   cta: string
+  image?: string
 }
 
 export type ValuePillar = {
@@ -37,7 +38,7 @@ export const site = {
     main: [
       { label: 'About Us', href: '/about' },
       { label: 'Careers', href: '/careers' },
-      { label: 'Newsroom', href: '#portfolio' },
+      { label: 'Newsroom', href: '/newsroom' },
       { label: 'Contact Us', href: '/contact' },
     ] satisfies NavItem[],
     hiringBanner: {
@@ -97,6 +98,7 @@ export const site = {
         description:
           "Complete electrical infrastructure for Universal’s newest and most ambitious theme park.",
         cta: 'View Project Details',
+        image: '/images/portfolio-epic-universe.png',
       },
       {
         title: 'Harry Potter Wizarding World',
@@ -104,18 +106,21 @@ export const site = {
         description:
           'Advanced electrical systems and show lighting for the magical world of Harry Potter.',
         cta: 'Learn More',
+        image: '/images/portfolio-harry-potter.png',
       },
       {
         title: 'Men in Black Experience',
         category: 'Interactive Attraction',
         description: 'Complex electrical and control systems for interactive ride experiences.',
         cta: 'Learn More',
+        image: '/images/portfolio-men-in-black.png',
       },
       {
         title: 'Luxury Resort Properties',
         category: 'Hospitality',
         description: 'High-end electrical solutions for premier resort destinations throughout Central Florida.',
         cta: 'Learn More',
+        image: '/images/portfolio-luxury-resort.png',
       },
     ] satisfies PortfolioItem[],
   },

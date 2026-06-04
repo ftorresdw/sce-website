@@ -12,8 +12,7 @@ export type TeamMember = {
   id: string
   name: string
   role: string
-  bio: string
-  image?: string
+  image: string
 }
 
 export const aboutPage = {
@@ -137,28 +136,22 @@ export const aboutPage = {
     intro: 'Meet the team guiding Service Complete Electric’s commitment to safety, quality, and exceptional service.',
     members: [
       {
-        id: 'leader-1',
-        name: 'Leadership Team Member',
+        id: 'tony-scruggs',
+        name: 'Tony Scruggs',
         role: 'President',
-        bio: 'Leads company strategy and client relationships across Central Florida’s premier hospitality and entertainment projects.',
+        image: '/images/leadership/tony-scruggs.png',
       },
       {
-        id: 'leader-2',
-        name: 'Leadership Team Member',
-        role: 'Vice President of Operations',
-        bio: 'Oversees field operations, project delivery, and coordination for complex electrical installations.',
+        id: 'eric-diller',
+        name: 'Eric Diller',
+        role: 'Vice President',
+        image: '/images/leadership/eric-diller.png',
       },
       {
-        id: 'leader-3',
-        name: 'Leadership Team Member',
-        role: 'Vice President of Safety',
-        bio: 'Champions industry-leading safety programs and STEP award-winning practices across all job sites.',
-      },
-      {
-        id: 'leader-4',
-        name: 'Leadership Team Member',
-        role: 'Director of Engineering',
-        bio: 'Directs design, engineering, and value engineering for mission-critical electrical systems.',
+        id: 'dylan-scruggs',
+        name: 'Dylan Scruggs',
+        role: 'Finance Manager',
+        image: '/images/leadership/dylan-scruggs.png',
       },
     ] satisfies TeamMember[],
   },

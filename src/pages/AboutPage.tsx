@@ -1,18 +1,8 @@
 import { useEffect } from 'react'
 import { AboutSection } from '../components/AboutSection'
 import { ValuesPillars } from '../components/ValuesPillars'
-import { aboutPage, type TeamMember } from '../content/about'
+import { aboutPage } from '../content/about'
 import { site } from '../content/site'
-
-function getInitials(name: string) {
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join('')
-    .toUpperCase()
-}
 
 export function AboutPage() {
   useEffect(() => {
@@ -46,8 +36,6 @@ export function AboutPage() {
         </div>
       </section>
 
-      <AboutSection showWorkWithUs className="border-t border-black/5" />
-
       <section id="mission" className="section border-t border-white/10 bg-[#0b0f1a]">
         <div className="container-page">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sce-orange">{aboutPage.mission.title}</p>
@@ -60,6 +48,34 @@ export function AboutPage() {
           <ValuesPillars />
         </div>
       </section>
+
+      <section id="leadership" className="section section-light border-t border-black/5">
+        <div className="container-page">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Our Team</p>
+          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">{aboutPage.leadership.title}</h2>
+          <p className="muted-light mt-4 max-w-2xl">{aboutPage.leadership.intro}</p>
+
+          <div className="mt-12 grid gap-10 sm:grid-cols-3 sm:gap-8">
+            {aboutPage.leadership.members.map((member) => (
+              <article key={member.id} className="flex flex-col items-center text-center">
+                <div className="size-44 overflow-hidden rounded-full sm:size-52 lg:size-56">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="size-full object-cover object-top"
+                  />
+                </div>
+                <h3 className="mt-5 text-lg font-black uppercase tracking-wide text-sce-orange sm:text-xl">
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-base font-medium text-sce-orange">{member.role}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <AboutSection showWorkWithUs className="border-t border-black/5" />
 
       <section id="awards" className="section section-light border-t border-black/5">
         <div className="container-page">
@@ -91,33 +107,6 @@ export function AboutPage() {
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="leadership" className="section section-light border-t border-black/5">
-        <div className="container-page">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Our Team</p>
-          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">{aboutPage.leadership.title}</h2>
-          <p className="muted-light mt-4 max-w-2xl">{aboutPage.leadership.intro}</p>
-
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {(aboutPage.leadership.members as TeamMember[]).map((member) => (
-              <article key={member.id} className="overflow-hidden rounded-3xl border border-slate-200 bg-white">
-                {member.image ? (
-                  <img src={member.image} alt={member.name} className="aspect-[4/5] w-full object-cover" />
-                ) : (
-                  <div className="flex aspect-[4/5] items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-                    <span className="text-4xl font-black text-slate-400">{getInitials(member.name)}</span>
-                  </div>
-                )}
-                <div className="p-5">
-                  <h3 className="text-lg font-bold text-slate-950">{member.name}</h3>
-                  <p className="mt-1 text-sm font-semibold text-sce-orange">{member.role}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{member.bio}</p>
-                </div>
-              </article>
             ))}
           </div>
         </div>
