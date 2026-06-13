@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { AboutSection } from '../components/AboutSection'
+import { AwardsShowcase } from '../components/AwardsShowcase'
 import { ValuesPillars } from '../components/ValuesPillars'
-import { aboutPage } from '../content/about'
-import { site } from '../content/site'
+import { aboutPage } from '../content'
 
 export function AboutPage() {
   useEffect(() => {
@@ -36,16 +37,42 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section id="mission" className="section border-t border-white/10 bg-[#0b0f1a]">
+      <AboutSection
+        eyebrow="Our Story"
+        useCapabilities
+        showWorkWithUs={false}
+        className="border-t border-black/5"
+      />
+
+      <section id="awards" className="section border-t border-white/10 bg-[#0b0f1a]">
         <div className="container-page">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sce-orange">{aboutPage.mission.title}</p>
-          <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sce-orange">Awards</p>
+          <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">{aboutPage.awards.title}</h2>
+          <p className="muted mt-4 max-w-2xl text-base leading-relaxed">{aboutPage.awards.intro}</p>
+
+          <div className="mt-10">
+            <AwardsShowcase />
+          </div>
+
+          <p className="muted mt-8 text-sm">
+            For the latest press releases and honors, visit the{' '}
+            <Link to="/newsroom" className="text-sce-orange hover:text-sce-orange-hover">
+              Newsroom
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section id="mission" className="section section-light border-t border-black/5">
+        <div className="container-page">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{aboutPage.mission.title}</p>
+          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
             Devoted to Being <span className="text-sce-orange">Exceptional</span>
           </h2>
-          <p className="muted mt-4 max-w-3xl text-base leading-relaxed">{aboutPage.mission.body}</p>
-          <p className="muted mt-4 max-w-3xl text-base leading-relaxed">{site.values.intro}</p>
+          <p className="muted-light mt-4 max-w-3xl text-base leading-relaxed">{aboutPage.mission.body}</p>
 
-          <ValuesPillars />
+          <ValuesPillars variant="light" excludeSafe />
         </div>
       </section>
 
@@ -59,88 +86,74 @@ export function AboutPage() {
             {aboutPage.leadership.members.map((member) => (
               <article key={member.id} className="flex flex-col items-center text-center">
                 <div className="size-44 overflow-hidden rounded-full sm:size-52 lg:size-56">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="size-full object-cover object-top"
-                  />
+                  <img src={member.image} alt={member.name} className="size-full object-cover object-top" />
                 </div>
                 <h3 className="mt-5 text-lg font-black uppercase tracking-wide text-sce-orange sm:text-xl">
                   {member.name}
                 </h3>
                 <p className="mt-1 text-base font-medium text-sce-orange">{member.role}</p>
+                <p className="muted-light mt-3 max-w-xs text-sm leading-relaxed">{member.bio}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <AboutSection showWorkWithUs className="border-t border-black/5" />
-
-      <section id="awards" className="section section-light border-t border-black/5">
+      <section id="credentials" className="section border-t border-black/5 bg-slate-50">
         <div className="container-page">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Awards</p>
-          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Awards & Recognitions</h2>
-          <p className="muted-light mt-4 max-w-2xl">
-            Industry honors recognizing our commitment to safety, quality, and excellence on Central Florida&apos;s most
-            iconic projects.
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Trust & Standards</p>
+          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
+            {aboutPage.credentials.title}
+          </h2>
+          <p className="muted-light mt-4 max-w-2xl">{aboutPage.credentials.intro}</p>
 
-          <div className="mt-10 space-y-12">
-            {aboutPage.awardsByYear.map((yearGroup) => (
-              <div key={yearGroup.year}>
-                <h3 className="text-2xl font-black text-sce-orange">{yearGroup.year}</h3>
-                <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {yearGroup.awards.map((award, index) => (
-                    <article
-                      key={`${yearGroup.year}-${index}`}
-                      className="flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-sce-orange/30 hover:shadow-md"
-                    >
-                      <span className="inline-flex w-fit rounded-full bg-sce-orange-light px-3 py-1 text-xs font-bold text-sce-orange">
-                        {yearGroup.year}
-                      </span>
-                      <h4 className="mt-4 text-base font-bold leading-snug text-slate-950">{award.title}</h4>
-                      {award.description ? (
-                        <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">{award.description}</p>
-                      ) : null}
-                    </article>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="mt-10 grid gap-10 lg:grid-cols-2">
+            <div>
+              <h3 className="text-lg font-bold text-slate-950">Certifications</h3>
+              <ul className="mt-5 space-y-4">
+                {aboutPage.credentials.certifications.map((cert) => (
+                  <li key={cert.title} className="rounded-2xl border border-slate-200 bg-white p-5">
+                    <p className="font-semibold text-slate-950">{cert.title}</p>
+                    <p className="mt-2 text-sm text-slate-600">{cert.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold text-slate-950">Associations</h3>
+              <ul className="mt-5 space-y-4">
+                {aboutPage.credentials.associations.map((assoc) => (
+                  <li
+                    key={assoc.name}
+                    className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-medium text-slate-800"
+                  >
+                    <span className="size-2 shrink-0 rounded-full bg-sce-orange" aria-hidden="true" />
+                    {assoc.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section section-light border-t border-black/5">
-        <div className="container-page grid gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Certifications</p>
-            <h2 className="mt-3 text-3xl font-black text-slate-950">{aboutPage.certifications.title}</h2>
-            <ul className="mt-6 space-y-4">
-              {aboutPage.certifications.items.map((cert) => (
-                <li key={cert.title} className="rounded-2xl border border-slate-200 bg-white p-5">
-                  <p className="font-semibold text-slate-950">{cert.title}</p>
-                  <p className="mt-2 text-sm text-slate-600">{cert.description}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Associations</p>
-            <h2 className="mt-3 text-3xl font-black text-slate-950">{aboutPage.associations.title}</h2>
-            <ul className="mt-6 space-y-3">
-              {aboutPage.associations.items.map((name) => (
-                <li
-                  key={name}
-                  className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-medium text-slate-800"
-                >
-                  <span className="size-2 shrink-0 rounded-full bg-sce-orange" aria-hidden="true" />
-                  {name}
-                </li>
-              ))}
-            </ul>
+      <section className="section border-t border-white/10 bg-[#0b0f1a]">
+        <div className="container-page">
+          <div className="card mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">{aboutPage.cta.title}</h2>
+            <p className="muted mt-4 text-base leading-relaxed">{aboutPage.cta.intro}</p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link to={aboutPage.cta.primary.href} className="btn-primary">
+                {aboutPage.cta.primary.label}
+              </Link>
+              <a href={aboutPage.cta.secondary.href} className="btn-ghost">
+                {aboutPage.cta.secondary.label}
+              </a>
+              <Link to={aboutPage.cta.tertiary.href} className="link-accent">
+                {aboutPage.cta.tertiary.label}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

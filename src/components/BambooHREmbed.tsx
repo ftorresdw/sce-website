@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { careersPage } from '../content/careers'
+import { careersPage } from '../content'
 import '../styles/bamboohr.css'
 
 declare global {

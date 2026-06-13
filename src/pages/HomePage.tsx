@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { AboutSection } from '../components/AboutSection'
 import { ServicesSection } from '../components/ServicesSection'
 import { ValuesPillars } from '../components/ValuesPillars'
-import { site } from '../content/site'
+import { site } from '../content'
 
 export function HomePage() {
   return (

@@ -1,4 +1,4 @@
-import type { BlogPost } from '../content/newsroom'
+import type { BlogPost } from '../content'
 
 function linkify(text: string) {
   const urlPattern = /(https?:\/\/[^\s]+)/g

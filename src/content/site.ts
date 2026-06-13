@@ -63,27 +63,37 @@ export const site = {
       "Our team combines technical expertise with creative problem-solving to tackle the industry's most complex challenges. From the magical world of Harry Potter to the groundbreaking Epic Universe, we bring visions to life with safe, reliable electrical systems.",
     ],
     stats: [
-      { value: 'Since 1995', label: 'Nearly 30 years of excellence', description: 'Nearly 30 years of excellence' },
+      { value: 'Since 1995', label: '30 years of service', description: '30 years of service' },
       { value: 'Expert Team', label: 'Licensed professionals', description: 'Licensed professionals' },
       { value: 'Award Winning', label: 'Industry recognized', description: 'Industry recognized' },
       { value: 'Full Service', label: 'Design to maintenance', description: 'Design to maintenance' },
+    ] satisfies Stat[],
+    capabilities: [
+      { value: 'Hospitality & Entertainment', label: 'Theme parks, resorts & venues', description: '' },
+      { value: 'Commercial & Industrial', label: 'Offices, retail & manufacturing', description: '' },
+      { value: 'Design to Completion', label: 'Full-service electrical contracting', description: '' },
+      { value: 'In-House Engineering', label: 'Design, modeling & value engineering', description: '' },
     ] satisfies Stat[],
     gallery: [
       {
         src: '/images/about/transformers.png',
         alt: 'Transformers: The Ride-3D at Universal Orlando Resort',
-      },
-      {
-        src: '/images/about/classroom.png',
-        alt: 'Students in a classroom raising their hands',
-      },
-      {
-        src: '/images/about/construction.png',
-        alt: 'Construction site with excavator and concrete pipe installation',
+        caption: 'Universal Orlando Resort',
       },
       {
         src: '/images/about/simpsons.png',
         alt: 'The Simpsons Ride entrance at Universal Studios',
+        caption: 'Universal Studios Florida',
+      },
+      {
+        src: '/images/about/construction.png',
+        alt: 'Construction site with excavator and concrete pipe installation',
+        caption: 'Commercial & industrial projects',
+      },
+      {
+        src: '/images/about/classroom.png',
+        alt: 'Students in a classroom raising their hands',
+        caption: 'Community involvement',
       },
     ],
   },

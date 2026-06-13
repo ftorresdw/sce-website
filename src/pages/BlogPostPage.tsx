@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { BlogPostBody } from '../components/BlogPostBody'
-import { formatPostDate, getPostBySlug, newsroom } from '../content/newsroom'
+import { formatPostDate, getPostBySlug, newsroom } from '../content'
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>()

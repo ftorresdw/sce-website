@@ -269,16 +269,16 @@ export function formatPostDate(isoDate: string) {
   })
 }
 
-export function getPostBySlug(slug: string) {
-  return newsroom.posts.find((post) => post.slug === slug)
+export function getPostBySlug(slug: string, posts: readonly BlogPost[] = newsroom.posts) {
+  return posts.find((post) => post.slug === slug)
 }
 
-export function getPostsByTag(tag: BlogTag | null) {
-  const sorted = [...newsroom.posts].sort((a, b) => b.date.localeCompare(a.date))
+export function getPostsByTag(tag: BlogTag | null, posts: readonly BlogPost[] = newsroom.posts) {
+  const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date))
   if (!tag) return sorted
   return sorted.filter((post) => post.tags.includes(tag))
 }
 
-export function getAllTags() {
-  return [...newsroom.tags]
+export function getAllTags(tags: readonly BlogTag[] = newsroom.tags) {
+  return [...tags]
 }

@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { ContactForm } from '../components/ContactForm'
-import { contactPage } from '../content/contact'
-import { site } from '../content/site'
+import { contactPage, site } from '../content'
 
 export function ContactPage() {
   useEffect(() => {

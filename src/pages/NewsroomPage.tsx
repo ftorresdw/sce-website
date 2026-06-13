@@ -6,7 +6,7 @@ import {
   getPostsByTag,
   newsroom,
   type BlogTag,
-} from '../content/newsroom'
+} from '../content'
 
 const ALL_TAG = 'All'
 

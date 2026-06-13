@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { site } from '../content/site'
+import { site } from '../content'
 
 function NavLink({
   to,
@@ -74,7 +74,7 @@ export function Layout() {
           <span aria-hidden="true">→</span>
         </Link>
 
-        <header className="border-b border-white/10 bg-black/90 backdrop-blur">
+        <header className="border-b border-white/10 bg-black">
           <div className="container-page flex h-16 items-center justify-between sm:h-20">
             <Link to="/" className="shrink-0" onClick={() => setMobileOpen(false)}>
               <img src={site.brand.logos.white} alt={site.brand.name} className="h-12 w-auto sm:h-16" />

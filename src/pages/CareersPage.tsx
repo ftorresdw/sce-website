@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { BambooHREmbed } from '../components/BambooHREmbed'
-import { careersPage } from '../content/careers'
+import { careersPage } from '../content'
 
 export function CareersPage() {
   useEffect(() => {

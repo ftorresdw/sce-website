@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import type { Service } from '../content/site'
+import type { Service } from '../content'
 
 type ServiceModalProps = {
   service: Service

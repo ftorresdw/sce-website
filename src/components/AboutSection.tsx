@@ -1,20 +1,32 @@
 import { Link } from 'react-router-dom'
-import { site } from '../content/site'
+import { site } from '../content'
 
 type AboutSectionProps = {
   showLearnMore?: boolean
   showWorkWithUs?: boolean
+  showStats?: boolean
+  useCapabilities?: boolean
+  eyebrow?: string
   className?: string
 }
 
-const [transformers, classroom, construction, simpsons] = site.about.gallery
+const gallery = site.about.gallery
 
-export function AboutSection({ showLearnMore = false, showWorkWithUs = true, className = '' }: AboutSectionProps) {
+export function AboutSection({
+  showLearnMore = false,
+  showWorkWithUs = true,
+  showStats = true,
+  useCapabilities = false,
+  eyebrow = 'About Us',
+  className = '',
+}: AboutSectionProps) {
+  const stats = useCapabilities ? site.about.capabilities : site.about.stats
+
   return (
     <section id="about" className={`section section-light ${className}`}>
       <div className="container-page grid gap-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">About Us</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{eyebrow}</p>
           <h2 className="mt-3 text-5xl font-black leading-[0.95] tracking-tight text-slate-950">
             Central Florida&apos;s <span className="text-sce-orange">Premier</span> Electrical Contractor
           </h2>
@@ -41,55 +53,44 @@ export function AboutSection({ showLearnMore = false, showWorkWithUs = true, cla
             </div>
           )}
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {site.about.stats.map((stat) => (
-              <div key={stat.value} className="flex items-start gap-3">
-                <div className="mt-0.5 grid size-10 place-items-center rounded-xl bg-sce-orange-light text-sce-orange">
-                  <div className="size-2.5 rounded-full bg-sce-orange/60" />
+          {showStats ? (
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              {stats.map((stat) => (
+                <div key={stat.value} className="flex items-start gap-3">
+                  <div className="mt-0.5 grid size-10 place-items-center rounded-xl bg-sce-orange-light text-sce-orange">
+                    <div className="size-2.5 rounded-full bg-sce-orange/60" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-slate-950">{stat.value}</div>
+                    <div className="text-sm text-slate-600">{stat.label}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-sm font-semibold text-slate-950">{stat.value}</div>
-                  <div className="text-sm text-slate-600">{stat.label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : null}
         </div>
 
         <div className="lg:col-span-5">
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <div className="overflow-hidden rounded-3xl bg-slate-100">
-              <img
-                src={transformers.src}
-                alt={transformers.alt}
-                className="aspect-[3/4] size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="overflow-hidden rounded-3xl bg-slate-100">
-              <img
-                src={classroom.src}
-                alt={classroom.alt}
-                className="aspect-[4/3] size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="overflow-hidden rounded-3xl bg-slate-100">
-              <img
-                src={construction.src}
-                alt={construction.alt}
-                className="aspect-[4/3] size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="overflow-hidden rounded-3xl bg-slate-100">
-              <img
-                src={simpsons.src}
-                alt={simpsons.alt}
-                className="aspect-[3/4] size-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            {gallery.map((image) => (
+              <figure key={image.src} className="overflow-hidden rounded-3xl bg-slate-100">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className={
+                    image.src.includes('transformers') || image.src.includes('simpsons')
+                      ? 'aspect-[3/4] size-full object-cover'
+                      : 'aspect-[4/3] size-full object-cover'
+                  }
+                  loading="lazy"
+                />
+                {'caption' in image && image.caption ? (
+                  <figcaption className="bg-white px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
+                    {image.caption}
+                  </figcaption>
+                ) : null}
+              </figure>
+            ))}
           </div>
         </div>
       </div>

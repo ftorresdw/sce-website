@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { site, type Service } from '../content/site'
+import { site, type Service } from '../content'
 import { ServiceModal } from './ServiceModal'
 
 function serviceFromHash(hash: string): Service | null {
